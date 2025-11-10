@@ -10,6 +10,7 @@ Ce dépôt contient les fichiers nécessaires pour lancer l’environnement comp
 ```bash
 activity-messenger/
 ├─ docker-compose.yml                 # Orchestration principale (API, Frontend, DB, Nginx, Adminer)
+│                                     # -> Dépôt cloné depuis : https://github.com/ibanson/activity-messenger-docker-config
 │
 ├─ docker-config/                     # Configurations Docker partagées
 │   ├─ api/
@@ -21,10 +22,10 @@ activity-messenger/
 │   │
 │   └─ ssl/                           # (Optionnel) Certificats SSL de développement
 │
-├─ api/                               # Dépôt cloné depuis activity-messenger-demo-api
+├─ api/                               # Dépôt cloné depuis : https://github.com/ibanson/activity-messenger-demo-api
 │   └─ (Code source du backend Laravel)
 │
-├─ frontend/                          # Dépôt cloné depuis activity-messenger-demo-frontend
+├─ frontend/                          # Dépôt cloné depuis : https://github.com/ibanson/activity-messenger-demo-frontend
 │   └─ (Code source Vue.js 2)
 │
 ├─ pg-data/                           # Volume local persistant pour PostgreSQL (non versionné)
