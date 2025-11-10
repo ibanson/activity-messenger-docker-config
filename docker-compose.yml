@@ -1,0 +1,75 @@
+
+services:
+
+  api:
+    build:
+      context: ./api # composer create-project laravel/laravel "api"
+      dockerfile: ../docker-config/api/Dockerfile
+      args:
+        user: dev
+        uid: 1000
+    container_name: activity_api
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./api:/var/www
+    environment:
+      APP_ENV: local
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: activity_database
+      DB_USERNAME: activity_user
+      DB_PASSWORD: activity_pass
+    depends_on:
+      - db
+    ports:
+      - 9000:80
+    networks:
+      - activity
+
+  db:
+    image: postgres:15
+    container_name: activity_database
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: activity_database
+      POSTGRES_USER: activity_user
+      POSTGRES_PASSWORD: activity_pass
+    volumes:
+       - ./pg-data:/var/lib/postgresql/data
+    networks:
+      - activity
+
+  adminer:
+    image: adminer:latest
+    container_name: "adminer"
+    ports:
+      - "8085:8080" # -> http://localhost:8085
+    networks:
+      - activity
+    restart: unless-stopped # always restart container automaticly, unless I manually stop it
+
+  nginx:
+    build:
+      context: ./docker-config/nginx
+      dockerfile: Dockerfile
+    container_name: activity_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      #- "443:443"
+    volumes:
+      - ./docker-config/ssl:/etc/nginx/ssl:ro
+      - ./api:/var/www
+    depends_on:
+      - api
+    networks:
+      - activity
+
+networks:
+  activity:
+    driver: bridge
+
+volumes:
+  pgdata:

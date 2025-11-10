@@ -1,0 +1,63 @@
+# ────────────────────────────────
+# ENVIRONNEMENT & VARIABLES
+# ────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ────────────────────────────────
+# CERTIFICATS & CLÉS
+# ────────────────────────────────
+*.key
+*.crt
+*.pem
+docker-config/ssl/*.key
+docker-config/ssl/*.crt
+
+# ────────────────────────────────
+# DOCKER VOLUMES / DONNÉES
+# ────────────────────────────────
+pg-data/
+pgdata/
+volumes/
+tmp/
+
+# ────────────────────────────────
+# DÉPENDANCES & BUILDS
+# ────────────────────────────────
+node_modules/
+vendor/
+dist/
+build/
+.cache/
+
+# ────────────────────────────────
+# LOGS
+# ────────────────────────────────
+*.log
+logs/
+storage/logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ────────────────────────────────
+# SYSTÈME / ÉDITEURS
+# ────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# ────────────────────────────────
+# BACKUPS / TEMPORAIRES
+# ────────────────────────────────
+*.bak
+*.tmp
+*.old
+*.orig
+
+/api
+/vue3
+/frontend
