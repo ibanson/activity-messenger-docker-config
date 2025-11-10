@@ -5,8 +5,9 @@ Ce dépôt contient les fichiers nécessaires pour lancer l’environnement comp
 
 ---
 
-## Structure du dépôt
+## 📁 Structure du dépôt
 
+```bash
 activity-messenger/
 ├─ docker-compose.yml                 # Orchestration principale (API, Frontend, DB, Nginx, Adminer)
 │
@@ -21,7 +22,6 @@ activity-messenger/
 │   └─ ssl/                           # (Optionnel) Certificats SSL de développement
 │
 ├─ api/                               # Dépôt cloné depuis activity-messenger-demo-api
-│   ├─ .env.example
 │   └─ (Code source du backend Laravel)
 │
 ├─ frontend/                          # Dépôt cloné depuis activity-messenger-demo-frontend
