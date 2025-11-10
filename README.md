@@ -1,4 +1,4 @@
-# 🐳 Activity Messenger – Docker Config
+# 🐳 Task manager – Docker Config
 
 Configuration **Docker** pour le projet _Activity Messenger_.
 Ce dépôt contient les fichiers nécessaires pour lancer l’environnement complet (API, Frontend, Base de données, Nginx, etc.) à l’aide de **Docker Compose**.
